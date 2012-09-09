@@ -5,14 +5,14 @@
 (define (prime? n)
   (define (check-factors f limit)
     (cond
-      [(>= f limit) #t]
+      [(> f limit) #t]
       [(= (remainder n f) 0) #f]
       [else (check-factors (+ f 2) limit)]))
   (cond
     [(= n 1) #f]
     [(= n 2) #t]
     [(= (remainder n 2) 0) #f]
-    [else (check-factors 3 (integer-sqrt n))]))
+    [else (check-factors 3 (ceiling (sqrt n)))]))
 
 (define (create-bowtie width height)
   (define target (make-bitmap width height))
