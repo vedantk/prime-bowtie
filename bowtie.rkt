@@ -9,7 +9,8 @@
       [(= (remainder n f) 0) #f]
       [else (check-factors (+ f 2) limit)]))
   (cond
-    [(<= n 2) #f]
+    [(= n 1) #f]
+    [(= n 2) #t]
     [(= (remainder n 2) 0) #f]
     [else (check-factors 3 (integer-sqrt n))]))
 
@@ -76,4 +77,4 @@
    
   target)
 
-(create-bowtie 1000 600)
+(create-bowtie 6000 6000)
